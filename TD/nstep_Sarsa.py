@@ -78,8 +78,7 @@ for i in range(10):  # Display 10 progress bars
                 next_state, reward, done = env.step(action)
                 next_action = agent.take_action(next_state)
                 episode_return += reward  # The return calculation here does not include discount factor decay.
-                agent.update(state, action, reward, next_state, next_action,
-                             done)
+                agent.update(state, action, reward, next_state, next_action, done)
                 state = next_state
                 action = next_action
             return_list.append(episode_return)
