@@ -60,8 +60,8 @@ device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cp
 env_name = "CartPole-v0"
 env = gym.make(env_name)
 torch.manual_seed(0)
-state_dim = env.observation_space.shape[0]
-action_dim = env.action_space.n
+state_dim = env.observation_space.shape[0]  # 4
+action_dim = env.action_space.n  # 2
 agent = REINFORCE(state_dim, hidden_dim, action_dim, learning_rate, gamma, device)
 
 return_list = []
