@@ -132,7 +132,7 @@ class TRPOContinuous:
         rewards = torch.tensor(transition_dict['rewards'], dtype=torch.float).view(-1, 1).to(self.device)
         next_states = torch.tensor(transition_dict['next_states'], dtype=torch.float).to(self.device)
         dones = torch.tensor(transition_dict['dones'], dtype=torch.float).view(-1, 1).to(self.device)
-        rewards = (rewards + 8.0) / 8.0  # 对奖励进行修改,方便训练，[−16,0]→[−1,1]
+        rewards = (rewards + 8.0) / 8.0  # 对奖励进行归一化,方便训练，[−16,0]→[−1,1]
         td_target = rewards + self.gamma * self.critic(next_states) * (1 - dones)
         td_delta = td_target - self.critic(states)
         advantage = compute_advantage(self.gamma, self.lmbda, td_delta.cpu()).to(self.device)
