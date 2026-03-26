@@ -11,7 +11,7 @@ import rl_utils
 
 class PolicyNetContinuous(torch.nn.Module):
     def __init__(self, state_dim, hidden_dim, action_dim, action_bound):
-        super(PolicyNetContinuous, self).__init__()
+        super().__init__()
         self.fc1 = torch.nn.Linear(state_dim, hidden_dim)
         self.fc_mu = torch.nn.Linear(hidden_dim, action_dim)
         self.fc_std = torch.nn.Linear(hidden_dim, action_dim)
@@ -39,7 +39,7 @@ class PolicyNetContinuous(torch.nn.Module):
 
 class QValueNetContinuous(torch.nn.Module):
     def __init__(self, state_dim, hidden_dim, action_dim):
-        super(QValueNetContinuous, self).__init__()
+        super().__init__()
         self.fc1 = torch.nn.Linear(state_dim + action_dim, hidden_dim)
         self.fc2 = torch.nn.Linear(hidden_dim, hidden_dim)
         self.fc_out = torch.nn.Linear(hidden_dim, 1)

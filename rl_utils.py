@@ -80,8 +80,7 @@ def train_off_policy_agent(env, agent, num_episodes, replay_buffer, minimal_size
                         agent.update(transition_dict)
                 return_list.append(episode_return)
                 if (i_episode + 1) % 10 == 0:
-                    pbar.set_postfix({'episode': num_episodes / 10 * i + i_episode + 1,
-                                      'return': np.mean(return_list[-10:])})
+                    pbar.set_postfix({'episode': num_episodes / 10 * i + i_episode + 1, 'return': np.mean(return_list[-10:])})
                 pbar.update(1)
     return return_list
 
