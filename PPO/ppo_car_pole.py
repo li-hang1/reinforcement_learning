@@ -7,7 +7,7 @@ import rl_utils
 
 class PolicyNet(torch.nn.Module):
     def __init__(self, state_dim, hidden_dim, action_dim):
-        super(PolicyNet, self).__init__()
+        super().__init__()
         self.fc1 = torch.nn.Linear(state_dim, hidden_dim)
         self.fc2 = torch.nn.Linear(hidden_dim, action_dim)
 
@@ -18,7 +18,7 @@ class PolicyNet(torch.nn.Module):
 
 class ValueNet(torch.nn.Module):
     def __init__(self, state_dim, hidden_dim):
-        super(ValueNet, self).__init__()
+        super().__init__()
         self.fc1 = torch.nn.Linear(state_dim, hidden_dim)
         self.fc2 = torch.nn.Linear(hidden_dim, 1)
 
